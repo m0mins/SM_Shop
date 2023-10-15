@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 
 # for payment
 import requests
-from sslcommerz_python.payment import SSLCSession
+#from sslcommerz_python.payment import SSLCSession
 from decimal import Decimal
 import socket
 from django.views.decorators.csrf import csrf_exempt

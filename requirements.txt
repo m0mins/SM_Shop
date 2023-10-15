@@ -10,5 +10,6 @@ Pillow==10.0.1
 psycopg2==2.9.9
 requests==2.31.0
 sqlparse==0.4.4
+typed-ast==1.5.5
 tzdata==2023.3
 urllib3==2.0.6
