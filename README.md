@@ -1,1 +1,2 @@
-# SM_Shop
+# python version
+3.7.12

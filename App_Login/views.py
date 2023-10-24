@@ -3,7 +3,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+#from django.http import HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, redirect
 from django.urls import reverse
 from django.http import HttpResponse
 
@@ -35,9 +36,8 @@ def login_user(request):
             password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
             if user is not None:
-                login(request, user)
-                return HttpResponse('Logged in')
-                #return HttpResponseRedirect(reverse('App_Shop:home'))
+                login(request, user)              
+                return HttpResponseRedirect(reverse('App_Shop:home'))
             else:
             # Return an error message or redirect to the login page with an error message
                 return HttpResponse('Invalid login credentials')
@@ -48,7 +48,8 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     messages.warning(request, "You are logged out!!")
-    return HttpResponse('Logged in')
+    return redirect("App_Shop:home")
+    #return HttpResponse('Logged in')
 
 @login_required
 def user_profile(request):
@@ -60,4 +61,5 @@ def user_profile(request):
             form.save()
             messages.success(request, "Change Saved!!")
             form = ProfileForm(instance=profile)
+            return redirect("App_Payment:checkout")
     return render(request, 'App_Login/change_profile.html', context={'form':form})
