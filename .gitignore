@@ -15,8 +15,8 @@ postgres_data/
 *.swp
 
 # Django Migration Files
-**/migrations/*.py
-**/migrations/*.pyc
+#**/migrations/*.py
+#**/migrations/*.pyc
 
 # Local Settings
 local_settings.py
