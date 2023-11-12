@@ -1,7 +1,7 @@
 FROM python:3.7
 
 WORKDIR /app
-COPY requirements.txt /app
+COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 RUN apt update
@@ -12,10 +12,9 @@ RUN rm /etc/nginx/sites-available/default
 COPY scripts/default.conf /etc/nginx/sites-available/default
 
 
-
-
 COPY . .
-COPY ./entrypoint.sh .
+
 RUN chmod +x ./entrypoint.sh
+
 
 CMD /bin/sh -c "./entrypoint.sh && nginx -g 'daemon off;' & python manage.py runserver 0.0.0.0:8000"

@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
+
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -88,11 +90,11 @@ WSGI_APPLICATION = 'SM_Shop_Proj.wsgi.application'
 DATABASES={
    'default':{
       'ENGINE':'django.db.backends.postgresql_psycopg2',
-      'NAME':'SM_ShopDB',
-      'USER':'postgres',
-      'PASSWORD':'Pass@99',
-      'HOST':'db',
-      'PORT':'5432',
+      'NAME':config('DATABASE_NAME'),
+      'USER':config('DATABASE_USER'),
+      'PASSWORD':config('DATABASE_PASSWORD'),
+      'HOST':config('DATABASE_HOST'),
+      'PORT':config('DATABASE_PORT'),
    }
 }
 

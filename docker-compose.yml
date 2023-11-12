@@ -12,7 +12,7 @@ services:
     # Add other configuration for your web service
 
   db:
-    image: postgres:13  # Use the PostgreSQL image from Docker Hub
+    image: postgres:16.0  # Use the PostgreSQL image from Docker Hub
     environment:
       POSTGRES_DB: "SM_ShopDB"
       POSTGRES_USER: "postgres"
