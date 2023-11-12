@@ -6,7 +6,9 @@ __pycache__/
 # Virtual Environment
 venv/
 env/
-.env/
+.envs
+
+postgresData/
 # IDE/Editor Files
 .vscode/
 .idea/
