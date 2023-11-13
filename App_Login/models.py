@@ -68,6 +68,7 @@ class Profile(models.Model):
     username = models.CharField(max_length=264, blank=True)
     full_name = models.CharField(max_length=264, blank=True)
     address_1 = models.TextField(max_length=300, blank=True)
+    address_2 = models.TextField(max_length=300, blank=True)
     city = models.CharField(max_length=40, blank=True)
     zipcode = models.CharField(max_length=10, blank=True)
     country = models.CharField(max_length=50, blank=True)
