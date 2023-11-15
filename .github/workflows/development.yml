@@ -15,9 +15,11 @@ jobs:
         
     - name: SSH
       run: |
-         ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@52.55.224.40
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
+        chmod 600 private_key.pem
+        ssh -i private_key.pem ubuntu@52.55.224.40
+
 
     - name: Execute custom deployment script
       run: |
-        chmod +x smlive.sh
         ./smlive.sh
