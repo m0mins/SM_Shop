@@ -2,7 +2,8 @@ name: Django CI/CD
 
 on:
   push:
-    branches: [master]
+    branches:
+      - development
 
 jobs:
   test:
