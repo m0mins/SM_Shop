@@ -14,7 +14,7 @@ jobs:
         
     - name: SSH
       run: |
-         ssh ubuntu@52.55.224.40
+         ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@52.55.224.40
 
     - name: Execute custom deployment script
       run: |
