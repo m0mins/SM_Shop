@@ -6,7 +6,7 @@ on:
       - development
 
 jobs:
-  test:
+  development-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,9 +17,5 @@ jobs:
       run: |
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
         chmod 600 private_key.pem
-        ssh -i private_key.pem ubuntu@52.55.224.40
+        ssh -o StrictHostKeyChecking=no -i private_key.pem ubuntu@52.55.224.40 './smlive.sh'
 
-
-    - name: Execute custom deployment script
-      run: |
-        ./smlive.sh
