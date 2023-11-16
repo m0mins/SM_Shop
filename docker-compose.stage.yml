@@ -1,22 +1,22 @@
 version: '3'
 
 services:
-  web.stage:
+  web-stage:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "8000:80"
     depends_on:
-      - db.stage
+      - db-stage
     # Add other configuration for your web service
 
-  db.stage:
+  db-stage:
     image: postgres:16.0  # Use the PostgreSQL image from Docker Hub
     environment:
-      POSTGRES_DB: "SM_ShopDB"
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "Pass@99"
+      POSTGRES_DB: "SM_ShopDB_stage"
+      POSTGRES_USER: "postgres_stage"
+      POSTGRES_PASSWORD: "Pass@99_stage"
     ports:
       - "5435:5432"
     volumes:
