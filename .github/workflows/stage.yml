@@ -1,0 +1,21 @@
+name: Django CI/CD
+
+on:
+  push:
+    branches:
+      - stage
+
+jobs:
+  development-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+        
+    - name: SSH
+      run: |
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
+        chmod 600 private_key.pem
+        ssh -o StrictHostKeyChecking=no -i private_key.pem ubuntu@52.55.224.40 './smlive.stage.sh'
+
